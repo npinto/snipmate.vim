@@ -84,3 +84,57 @@ snippet ifmain
 # __magic__
 snippet _
 	__${1:init}__${2}
+snippet pdb:
+	import pdb; pdb.set_trace()
+snippet ipdb
+	import ipdb; ipdb.set_trace()
+snippet pudb
+	import pudb; pudb.set_trace()
+snippet np
+	import numpy as np
+snippet sp
+	import numpy as np
+snippet pl
+	import pylab as pl
+snippet pt3
+	import pythor3 as pt3
+
+snippet pkl
+	import cPickle as pkl
+
+snippet logging
+	import logging
+	logging.basicConfig(level=logging.INFO)
+	log = logging.getLogger(__name__)
+
+snippet optparse
+	import optparse
+
+	usage = ("usage: %prog [options] "
+			 "<param1> "
+			 "... "
+			 "<paramN> "
+			 )
+
+	parser = optparse.OptionParser(usage=usage)
+
+	parser.add_option("--opt1",
+					  default=False,
+					  action="store_true",
+					  help="overwrite file(s) if they exist(s) [default=%default]")
+
+	thehelp = "Ziz iz da help [default=%default]"
+	parser.add_option("--opt2",
+					  default='opt2_default',
+					  type=str,
+					  help=thehelp)
+
+	opts, args = parser.parse_args()
+
+	if len(args) < 1:
+		parser.print_help()
+
+	else:
+		param1 = args[0]
+		param2 = args[1]
+		foo(param1, param2, opt1=opts.opt1, opt2=opts.opt2)

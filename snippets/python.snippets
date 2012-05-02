@@ -84,49 +84,46 @@ snippet ifmain
 # __magic__
 snippet _
 	__${1:init}__${2}
-
+#
 snippet path:
 	from os import path
-
+#
 snippet glob:
 	from glob import glob
-
+#
 snippet pdb:
 	import pdb; pdb.set_trace()
-
+#
 snippet ipdb
 	import ipdb; ipdb.set_trace()
-
+#
 snippet pudb
 	import pudb; pudb.set_trace()
-
+#
 snippet ipshell
 	import IPython; ipshell = IPython.embed; ipshell(banner1='ipshell')
-
+#
 snippet np
 	import numpy as np
-
+#
 snippet sp
 	import scipy as sp
-
+#
 snippet pl
 	import pylab as pl
-
-snippet pt3
-	import pythor3 as pt3
-
+#
 snippet pkl
 	import cPickle as pkl
-
+#
 snippet logging
 	import logging
 	logging.basicConfig(level=logging.INFO)
 	log = logging.getLogger(__name__)
-
+#
 snippet warnnings
 	import warnings
 	warnings.filterwarnings('ignore')
-
+#
 snippet optparse
 	import optparse
 
@@ -158,3 +155,45 @@ snippet optparse
 		param1 = args[0]
 		param2 = args[1]
 		foo(param1, param2, opt1=opts.opt1, opt2=opts.opt2)
+#
+snippet argparse
+	import argparse
+
+	description = ""
+	parser = argparse.ArgumentParser(description=description)
+
+	parser.add_argument(
+			'modfunc',
+			metavar='module.function',
+			nargs='+',
+			help="default='%(default)s'",
+			elpilog='epilog',
+	)
+
+	parser.add_argument(
+			'-i', '--int',
+			type=int,
+			default=1,
+			help="default='%(default)s'",
+	)
+
+	parser.add_argument(
+			'-s', '--str',
+			default='XXX',
+			help="default='%(default)s'",
+	)
+
+	parser.add_argument(
+			'-b', '--bool',
+			default=False,
+			action='store_true',
+			help="default='%(default)s'",
+	)
+
+	args = parser.parse_args()
+
+	func(
+		args.a,
+		kw1=args.kw1,
+		# ...
+	)

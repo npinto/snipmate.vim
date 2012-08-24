@@ -202,4 +202,7 @@ snippet argparse
 	)
 #
 snippet lprun
+	get_ipython().define_magic('lprun', line_profiler.magic_lprun)
+#
+snippet lprun2
 	import IPython, line_profiler; IPython.core.ipapi.get().define_magic('lprun', line_profiler.magic_lprun)

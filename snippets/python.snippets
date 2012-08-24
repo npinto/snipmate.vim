@@ -200,3 +200,6 @@ snippet argparse
 		kw1=args.kw1,
 		# ...
 	)
+#
+snippet lprun
+	import IPython, line_profiler; IPython.core.ipapi.get().define_magic('lprun', line_profiler.magic_lprun)
